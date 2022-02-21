@@ -1,0 +1,78 @@
+import requests
+
+print('Weather Report')
+def weather(api_key, city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+
+api_key = "65392ac1b5161434662d7859553cce1b"
+
+city_name = input("Enter city name : ")
+
+weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city_name + '&appid='+api_key
+
+response = requests.get(weather_url)
+
+weather_data = response.json()
+
+if weather_data['cod'] == 200:
+    kelvin = 273.15 
+    temp = int(weather_data['main']['temp'] - kelvin)
+    feels_like_temp = int(weather_data['main']['feels_like'] - kelvin)
+    humidity = weather_data['main']['humidity']
+    timezone = weather_data['timezone']
+    description = weather_data['weather'][0]['description']
+
+    print(f"Weather Information for City: {city_name}")
+    print(f"Temperature (Celsius): {temp}")
+    print(f"Feels like in (Celsius): {feels_like_temp}")
+    print(f"Humidity: {humidity}%")
+else:
+    print(f"City Name: {city_name} was not found!")
+
+    question = input('Do you want to do another search ? Type Yes or No: ')
+
+def loop():
+  
+  if question == 'Yes': 
+    main()
+  elif question == 'No':
+    print("Thank you for using weather report")
+    exit()
+def by_zip(api_key, zipcode):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+
+api_key = "65392ac1b5161434662d7859553cce1b"
+
+city_name = input("Enter zip code : ")
+
+weather_url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city_name + '&appid='+api_key
+
+response = requests.get(weather_url)
+
+weather_data = response.json()
+
+if weather_data['cod'] == 200:
+    kelvin = 273.15 
+    temp = int(weather_data['main']['temp'] - kelvin)
+    feels_like_temp = int(weather_data['main']['feels_like'] - kelvin)
+    humidity = weather_data['main']['humidity']
+    timezone = weather_data['timezone']
+    description = weather_data['weather'][0]['description']
+
+    print(f"Weather Information for City: {city_name}")
+    print(f"Temperature (Celsius): {temp}")
+    print(f"Feels like in (Celsius): {feels_like_temp}")
+    print(f"Humidity: {humidity}%")
+else:
+    print(f"City Name: {city_name} was not found!")
+
+    question = input('Do you want to do another search ? Type Yes or No: ')
+
+def loop():
+  
+  if question == 'Yes': 
+    main()
+  elif question == 'No':
+    print("Thank you for using weather report")
+    exit()
+   
