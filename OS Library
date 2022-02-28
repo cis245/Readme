@@ -1,0 +1,20 @@
+import os
+filepath = '/Users/ace/Desktop/python'
+filename = 'testFile.txt'
+completepath = filename + filepath
+print ('importing OS')
+def directory():
+  directory = input("Where would you like to save the file: ")
+  filename = input ("Please enter the name of the file:")
+  name = input ("Please enter your name:")
+  address = input ("Please enter your address:")
+  phoneNumber = input ("Please enter your phoneNumber:")
+def file():
+  if os.files.isdir('filepath'):
+    filehandle: filehandle.write((name+','+address+','+phoneNumber+'\n'))
+    data = filehandle.read ()
+    print (data)  
+      
+  else:
+    print('sorry directory does not exists')
+directory()
